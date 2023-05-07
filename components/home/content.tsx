@@ -55,7 +55,7 @@ export const Content = () => (
                      },
                   }}
                >
-                  Available Balance
+                  数据看板
                </Text>
                <Flex
                   css={{
