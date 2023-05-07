@@ -19,7 +19,7 @@ export const CardTransactions = () => {
          <Card.Body css={{py: '$10'}}>
             <Flex css={{gap: '$5'}} justify={'center'}>
                <Text h3 css={{textAlign: 'center'}}>
-                  Latest Transactions
+                  最新进展
                </Text>
             </Flex>
             <Flex

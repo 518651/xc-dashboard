@@ -1,25 +1,48 @@
 import React from 'react';
-import {Text, Link} from '@nextui-org/react';
-import {Box} from '../styles/box';
+import { Text, Link } from '@nextui-org/react';
+import { Box } from '../styles/box';
 import dynamic from 'next/dynamic';
-import {Flex} from '../styles/flex';
-import {TableWrapper} from '../table/table';
+import { Flex } from '../styles/flex';
+import { TableWrapper } from '../table/table';
 import NextLink from 'next/link';
-import {CardBalance1} from './card-balance1';
-import {CardBalance2} from './card-balance2';
-import {CardBalance3} from './card-balance3';
-import {CardAgents} from './card-agents';
-import {CardTransactions} from './card-transactions';
+import { CardBalance1 } from './card-balance1';
+import { CardBalance2 } from './card-balance2';
+import { CardBalance3 } from './card-balance3';
+import { CardAgents } from './card-agents';
+import { CardTransactions } from './card-transactions';
+import { Card, Title, LineChart } from "@tremor/react";
 
-const Chart = dynamic(
-   () => import('../charts/steam').then((mod) => mod.Steam),
+const chartdata = [
    {
-      ssr: false,
-   }
-);
+     year: 1951,
+     "Population growth rate": 1.74,
+   },
+   {
+     year: 1952,
+     "Population growth rate": 1.93,
+   },
+   {
+     year: 1953,
+     "Population growth rate": 1.9,
+   },
+   {
+     year: 1954,
+     "Population growth rate": 1.98,
+   },
+   {
+     year: 1955,
+     "Population growth rate": 2,
+   },
+ ];
+ 
+ const dataFormatter = (number: number) =>
+   `${Intl.NumberFormat("us").format(number).toString()}%`;
+
+
 
 export const Content = () => (
-   <Box css={{overflow: 'hidden', height: '100%'}}>
+   
+   <Box css={{ overflow: 'hidden', height: '100%' }}>
       <Flex
          css={{
             'gap': '$8',
@@ -39,7 +62,7 @@ export const Content = () => (
             css={{
                'px': '$12',
                'mt': '$8',
-               '@xsMax': {px: '$10'},
+               '@xsMax': { px: '$10' },
                'gap': '$12',
             }}
             direction={'column'}
@@ -72,7 +95,7 @@ export const Content = () => (
                   <CardBalance2 />
                   <CardBalance3 />
                </Flex>
-            </Box>
+            </Box>   
 
             {/* Chart */}
             <Box>
@@ -85,7 +108,7 @@ export const Content = () => (
                      },
                   }}
                >
-                  Statistics
+                  数据统计
                </Text>
                <Box
                   css={{
@@ -97,7 +120,18 @@ export const Content = () => (
                      py: '$10',
                   }}
                >
-                  <Chart />
+                  <Card>
+                     <Title>Population growth rate (1951 to 2021)</Title>
+                     <LineChart
+                        className="mt-6"
+                        data={chartdata}
+                        index="year"
+                        categories={["Population growth rate"]}
+                        colors={["blue"]}
+                        valueFormatter={dataFormatter}
+                        yAxisWidth={40}
+                     />
+                  </Card>
                </Box>
             </Box>
          </Flex>
@@ -108,7 +142,7 @@ export const Content = () => (
                'px': '$12',
                'mt': '$8',
                'height': 'fit-content',
-               '@xsMax': {px: '$10'},
+               '@xsMax': { px: '$10' },
                'gap': '$6',
                'overflow': 'hidden',
             }}
@@ -155,7 +189,7 @@ export const Content = () => (
             'py': '$10',
             'px': '$10',
             'mt': '$8',
-            '@sm': {px: '$20'},
+            '@sm': { px: '$20' },
          }}
       >
          <Flex justify={'between'} wrap={'wrap'}>
@@ -168,7 +202,7 @@ export const Content = () => (
                   },
                }}
             >
-               Latest Users
+               任职情况
             </Text>
             <NextLink href="/accounts">
                <Link
