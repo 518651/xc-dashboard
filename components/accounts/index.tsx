@@ -1,3 +1,9 @@
+/*
+ * @Date: 2023-05-07 13:40:46
+ * @LastEditors: 518651 && zhuxs.0x7e9fb@qq.com
+ * @LastEditTime: 2023-05-08 10:59:53
+ * @FilePath: \xc-dashboard\components\accounts\index.tsx
+ */
 import {Button, Input, Text} from '@nextui-org/react';
 import Link from 'next/link';
 import React from 'react';
@@ -31,22 +37,22 @@ export const Accounts = () => {
             <Crumb>
                <HouseIcon />
                <Link href={'/'}>
-                  <CrumbLink href="#">Home</CrumbLink>
+                  <CrumbLink href="#">控制台</CrumbLink>
                </Link>
                <Text>/</Text>
             </Crumb>
 
             <Crumb>
                <UsersIcon />
-               <CrumbLink href="#">Users</CrumbLink>
+               <CrumbLink href="#">读者</CrumbLink>
                <Text>/</Text>
             </Crumb>
             <Crumb>
-               <CrumbLink href="#">List</CrumbLink>
+               <CrumbLink href="#">读者列表</CrumbLink>
             </Crumb>
          </Breadcrumbs>
 
-         <Text h3>All Accounts</Text>
+         <Text h3>所有读者</Text>
          <Flex
             css={{gap: '$8'}}
             align={'center'}

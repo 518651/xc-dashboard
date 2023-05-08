@@ -8,35 +8,47 @@ import NextLink from 'next/link';
 import { CardBalance1 } from './card-balance1';
 import { CardBalance2 } from './card-balance2';
 import { CardBalance3 } from './card-balance3';
-import { CardAgents } from './card-agents';
+import CardAgents  from './card-agents';
 import { CardTransactions } from './card-transactions';
-import { Card, Title, LineChart } from "@tremor/react";
+import { Card, Title, AreaChart } from "@tremor/react";
+import ChartView from '../charts/mainpagechart';
 
 const chartdata = [
    {
-     year: 1951,
-     "Population growth rate": 1.74,
+     date: "Jan 22",
+     SemiAnalysis: 2890,
+     "The Pragmatic Engineer": 2338,
    },
    {
-     year: 1952,
-     "Population growth rate": 1.93,
+     date: "Feb 22",
+     SemiAnalysis: 2756,
+     "The Pragmatic Engineer": 2103,
    },
    {
-     year: 1953,
-     "Population growth rate": 1.9,
+     date: "Mar 22",
+     SemiAnalysis: 3322,
+     "The Pragmatic Engineer": 2194,
    },
    {
-     year: 1954,
-     "Population growth rate": 1.98,
+     date: "Apr 22",
+     SemiAnalysis: 3470,
+     "The Pragmatic Engineer": 2108,
    },
    {
-     year: 1955,
-     "Population growth rate": 2,
+     date: "May 22",
+     SemiAnalysis: 3475,
+     "The Pragmatic Engineer": 1812,
+   },
+   {
+     date: "Jun 22",
+     SemiAnalysis: 3129,
+     "The Pragmatic Engineer": 1726,
    },
  ];
  
- const dataFormatter = (number: number) =>
-   `${Intl.NumberFormat("us").format(number).toString()}%`;
+ const dataFormatter = (number: number) => {
+   return "$ " + Intl.NumberFormat("us").format(number).toString();
+ };
 
 
 
@@ -120,18 +132,7 @@ export const Content = () => (
                      py: '$10',
                   }}
                >
-                  <Card>
-                     <Title>Population growth rate (1951 to 2021)</Title>
-                     <LineChart
-                        className="mt-6"
-                        data={chartdata}
-                        index="year"
-                        categories={["Population growth rate"]}
-                        colors={["blue"]}
-                        valueFormatter={dataFormatter}
-                        yAxisWidth={40}
-                     />
-                  </Card>
+                  <ChartView/>
                </Box>
             </Box>
          </Flex>
@@ -156,7 +157,7 @@ export const Content = () => (
                   },
                }}
             >
-               Section
+               近期问题
             </Text>
             <Flex
                direction={'column'}
@@ -175,7 +176,7 @@ export const Content = () => (
                }}
             >
                <CardAgents />
-               <CardTransactions />
+               {/* <CardTransactions /> */}
             </Flex>
          </Box>
       </Flex>

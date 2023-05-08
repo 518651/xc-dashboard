@@ -49,33 +49,34 @@ export const SidebarWrapper = () => {
             >
                <Sidebar.Body className="body sidebar">
                   <SidebarItem
-                     title="Home"
+                     title="总览"
                      icon={<HomeIcon />}
                      isActive={router.pathname === '/'}
                      href="/"
                   />
-                  <SidebarMenu title="Main Menu">
+                  <SidebarMenu title="功能区">
                      <SidebarItem
                         isActive={router.pathname === '/accounts'}
-                        title="Accounts"
+                        title="读者管理"
                         icon={<AccountsIcon />}
                         href="accounts"
                      />
                      <SidebarItem
                         isActive={router.pathname === '/payments'}
-                        title="Payments"
+                        title="日常事务"
                         icon={<PaymentsIcon />}
                      />
                      <CollapseItems
                         icon={<BalanceIcon />}
-                        items={['Banks Accounts', 'Credit Cards', 'Loans']}
-                        title="Balances"
+                        items={['日常活动', '分享会', '方案']}
+                        title="活动中心"
                      />
 
                      <SidebarItem
-                        isActive={router.pathname === '/customers'}
-                        title="Customers"
+                        isActive={router.pathname === '/scoremanage'}
+                        title="积分管理"
                         icon={<CustomersIcon />}
+                        href='scoremanage'
                      />
                      <SidebarItem
                         isActive={router.pathname === '/products'}

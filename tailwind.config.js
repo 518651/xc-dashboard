@@ -1,17 +1,16 @@
 /*
  * @Date: 2023-05-07 13:23:39
  * @LastEditors: 518651 && zhuxs.0x7e9fb@qq.com
- * @LastEditTime: 2023-05-07 13:29:19
+ * @LastEditTime: 2023-05-07 20:10:43
  * @FilePath: \xc-dashboard\tailwind.config.js
  */
-/** 
-@type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{html,js,ts,jsx,tsx,mdx}',
-    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+    './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
